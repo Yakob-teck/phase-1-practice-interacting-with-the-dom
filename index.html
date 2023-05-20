@@ -3,43 +3,83 @@
   <meta charset="UTF-8">
   <title>Dom Challenge</title>
   <style>
-    #counter {
-      background-color: black;
-      color: white;
-      display: table;
-      padding: 10px;
+      .button-container {
+      display: flex;
+      justify-content: center; /* Aligns the button horizontally to the center */
     }
+    .center-align {
+      text-align: center; /* Aligns the heading content to the center horizontally */
+    }
+
+    .right-align {
+      text-align: right; /* Aligns the heading content to the right */
+    }
+
+    .left-align {
+      text-align: left; /* Aligns the heading content to the left */
+    }
+    #counter {
+      background-color: #07040b;
+      color: rgb(213, 210, 216);
+      display:ruby-base-container;
+      padding: 20px;
+      align-items: center;
+      text-align: center;
+      vertical-align: middle;
+    }
+    
   </style>
 </head>
 <body>
-  <h1>
+  <h1 class="center-align">
     Welcome to the DOM Challenge
   </h1>
+  <div class="button-container">
   <h1 id='counter'>
-    0
+    00:00:00
   </h1>
-  <button id='minus' > ➖ </button>
+  </div>
+  <div class="button-container">
+  <button   id='minus' > ➖ </button>
   <button id='plus' > ➕ </button>
-  <button id='heart' > ❤️ </button>
-  <button id='pause' > pause </button>
-
+  
+  <button id='pause'> pause </button>
+  </div>
+  <h2 class="center-align">Heart Button counter</h2>
+  <p class="center-align">Total Like:<span id ="heartCount">0</span></p>
+ <div class="button-container"><button id='heartButton'> ❤️ </button></div>
   <ul class='likes'></ul>
 
   <div>
-    <h3>Comments</h3>
+    <h3 class="center-align">Comments</h3>
     <div id='list' class='comments'></div>
 
-    <h3>Leave a comment</h3>
-
+    <h3 class="center-align">Leave a comment</h3>
+<div class="button-container">
     <form id="comment-form" action="">
       <input type='text' name="comment" id="comment-input" cols="30" rows="10">
       </br>
       <button id='submit'>submit</button>
     </form>
-
+</div>
   </div>
 
-  <script src="js/index.min.js"></script>
+ <!---- <script src="js/index.min.js"></script>-->
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the necessary elements
+    const heartButton = document.getElementById('heartButton');
+    const heartCountElement = document.getElementById('heartCount');
+    
+    let heartCount = 0;
+    
+    // Event listener for the heart button click
+    heartButton.addEventListener('click', function() {
+      heartCount++;
+      heartCountElement.innerText = heartCount;
+    });
+  });
+</script>
   <script src="js/challenge.js"></script>
 </body>
 </html>
